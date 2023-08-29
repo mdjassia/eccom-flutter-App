@@ -1,0 +1,164 @@
+import 'package:flutter/material.dart';
+
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+
+  @override
+  Widget build(BuildContext context) {
+
+    InputDecoration deco =  InputDecoration(
+      contentPadding: const EdgeInsets.fromLTRB(30,20,50,20), //Change this value to custom as you like
+      isDense: true,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      //contentPadding:EdgeInsets.all(10), ,
+      border: const OutlineInputBorder(
+        //borderSide: BorderSide(color: Colors.black12),
+          borderRadius: BorderRadius.all(Radius.circular(35)),
+          gapPadding: 5
+      ),
+      labelStyle: const TextStyle(
+          fontSize: 20 ,
+          color: Colors.black38 ,
+          fontWeight: FontWeight.w500
+      ),
+
+      hintText: 'Enter ur email adress' ,
+      hintStyle: const TextStyle(
+          color:Colors.black12
+      ),
+      suffixIcon: Container(margin :const EdgeInsets.fromLTRB(0, 0, 30, 0),child: const Icon(Icons.email_outlined , color: Colors.black12,size: 25,)),
+
+      label: Container(
+          padding: const EdgeInsets.symmetric(vertical:0 , horizontal:10),
+          child: const Text('Email')
+
+      ),
+    );
+    bool check2 = false ;
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.red;
+    }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Signe In ",style: TextStyle(
+          color: Colors.grey,
+        ),),
+        centerTitle: true,
+        backgroundColor: Colors.grey[50],
+        //shadowColor: Colors.transparent,
+        elevation: 0,
+      ),
+    body:  SingleChildScrollView(
+      child: Center(
+        child : Column(
+
+
+        children: [
+          const SizedBox(height: 30,),
+          const Text(" Welcome Back ",
+            style:  TextStyle(
+                color: Colors.black ,
+                fontSize: 32,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+          const SizedBox(height: 14,),
+          const Text("sign in with your email and password \n or continue with social media",
+          style: TextStyle(
+            color: Colors.black38,
+              fontSize: 16,
+           height: 1.4
+          ),
+              textAlign: TextAlign.center ,
+          ),
+
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB( 30,100 ,30, 10),
+
+            child: TextField(
+
+                decoration: deco
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30,20 ,30, 10),
+            child: TextField(
+                decoration: deco.copyWith(
+                    hintText: 'Enter your password' ,
+                    suffixIcon: Container(margin :const EdgeInsets.fromLTRB(0, 0, 30, 0),child: const Icon(Icons.lock , color: Colors.black12,size: 25,)),
+                    label: Text('Password')
+                )
+            ),
+          ),
+          Container(
+              padding : EdgeInsets.fromLTRB(40, 5, 40, 10) ,
+           child :  Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+           Checkbox(
+           checkColor: Colors.white,
+             fillColor: MaterialStateProperty.resolveWith(getColor),
+             value: check2,
+             onChanged: (bool? value) {
+               setState(() {
+                 check2 = value!;
+               });
+             },
+           )
+                  ],
+                ),
+
+                Text("I forgot my password ",
+                style: TextStyle(
+
+                ),)
+
+              ],
+            ),
+          ),
+
+
+          Container(
+            height: 65,
+            width: 320,
+
+            margin: const  EdgeInsets.fromLTRB(0 ,45 ,0 ,0),
+            child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, '/sign In') ;
+
+                },
+
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Color(0xFFF57C00)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder( borderRadius: BorderRadius.circular(40) ))
+                ),
+                child: const  Text('Continue ', style: TextStyle(fontSize: 20 , color: Colors.white),)
+            ),
+          ),
+
+        ],
+          ) ,
+          )
+      ),
+      );
+
+  }
+}
