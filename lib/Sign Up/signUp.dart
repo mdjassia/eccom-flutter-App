@@ -9,7 +9,9 @@ import 'package:ecom/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class signUp extends StatefulWidget {
-  const signUp({Key? key}) : super(key: key);
+
+  final Function? toggleView   ;
+  signUp ({ this.toggleView});
 
   @override
   State<signUp> createState() => _signUpState();
@@ -141,8 +143,7 @@ class _signUpState extends State<signUp> {
 
               ),
               Text( errorMessage =='' ? '' : 'heuum $errorMessage' ),
-              TextButton(onPressed: (){
-                Navigator.popAndPushNamed(context, '/Widget_Tree');
+              TextButton(onPressed: (){  widget.toggleView!() ;
               }, child: Text('se connecter')),
               Container(
                 height: 65,

@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
 
         '/' :(context) => const Landing(),
         '/Widget_Tree' :(context) => const Widget_Tree(),
-        '/sign Up' : (context) => const signUp(),
-        '/sign In' : (context) => const SignIn(),
+        '/sign Up' : (context) =>  signUp(),
+        '/sign In' : (context) =>  SignIn(),
         '/Home' : (context)  => const Home(),
         '/Detail1' :(context)  => const Detail1(),
 

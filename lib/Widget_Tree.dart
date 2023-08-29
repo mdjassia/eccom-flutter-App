@@ -4,6 +4,7 @@ import 'package:ecom/home/home.dart' ;
 import 'package:ecom/landing/landing.dart';
 import 'package:flutter/material.dart';
 import 'package:ecom/auth.dart';
+import 'package:ecom/authenticate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
@@ -24,7 +25,7 @@ class _Widget_TreeState extends State<Widget_Tree> {
           return Home();
         }
         else{
-          return SignIn();
+          return Authentcate();
         }
       },
     );

@@ -4,7 +4,9 @@ import 'package:ecom/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  final Function? toggleView   ;
+  SignIn ({ this.toggleView});
+
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -202,13 +204,7 @@ class _SignInState extends State<SignIn> {
                       ),
                       Text(errorMessage==''? '': "$errorMessage") ,
           TextButton(onPressed: (){
-          setState(() {
-          Navigator.pushAndRemoveUntil<void>(
-          context,
-          MaterialPageRoute<void>(builder: (BuildContext context) => const signUp()),
-          ModalRoute.withName('/Widget_Tree'),
-          );
-          });
+            widget.toggleView!() ;
           }, child: Text('creer un compte')),
 
                     ],
