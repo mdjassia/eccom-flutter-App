@@ -44,75 +44,7 @@ class _HomeState extends State<Home> {
   }
   Widget  build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        flexibleSpace: Container(
-          padding: const EdgeInsets.fromLTRB(10, 40,10, 0),
-          child: Row(
 
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                width: 220,
-                height: 50,
-                decoration:  const BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.all(
-                       Radius.circular(40), ),
-
-
-                ),
-
-                child : IconButton(
-                  onPressed: null,
-                  icon: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-
-                    children: [
-                      Container(padding : EdgeInsets.fromLTRB(0, 0, 20, 0) ,child: SvgPicture.asset("assets/icons/Search Icon.svg")),
-                      Text('Search product ' , style: TextStyle(color: Colors.black54),)
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: 55,
-                height: 50,
-
-                decoration:  const BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20), ),
-                ),
-                child: IconButton(icon : SvgPicture.asset("assets/icons/Cart Icon.svg") ,
-                  onPressed: null ,) ,
-
-
-              ),
-              Container(
-                width: 55,
-                height: 50,
-
-                decoration:  const BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20), ),
-                ),
-                child:IconButton(onPressed: null ,
-                    icon: SvgPicture.asset("assets/icons/Bell.svg"))
-
-              ),
-
-
-            ],
-
-      ),
-        ),
-
-        ),
 
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
