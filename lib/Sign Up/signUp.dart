@@ -56,13 +56,17 @@ class _signUpState extends State<signUp> {
   bool isLogin = true ;
   final TextEditingController _controllerEmail = TextEditingController() ;
   final TextEditingController _controllerPassWord = TextEditingController() ;
+  final TextEditingController _controllerName = TextEditingController() ;
+ // final TextEditingController _controllerPhoto = TextEditingController() ;
 
   Future<void> createUserWithEmailPassword() async{
 
     try{
       await Auth().createUserWithEmailAndPassword(
         email : _controllerEmail.text ,
-        password : _controllerPassWord.text
+        password : _controllerPassWord.text,
+        name : _controllerName.text,
+        //photo: _controllerPhoto.text
       );
     } on FirebaseAuthException catch (e){
       setState(() {
@@ -133,15 +137,26 @@ class _signUpState extends State<signUp> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30,20 ,30, 10),
                 child: TextField(
-
+                  controller: _controllerName,
                     decoration: deco.copyWith(
-                        hintText: 'Confirm your password' ,
+                        hintText: 'UserName' ,
                         suffixIcon: Container(margin :const EdgeInsets.fromLTRB(0, 0, 30, 0),child: const Icon(Icons.lock , color: Colors.black12,size: 25,)),
-                        label: const Text('Password confirmation')
+                        label: const Text('UserName')
                     )
                 ),
 
               ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(30,20 ,30, 10),
+              //   child: TextField(
+              //       controller: _controllerPhoto ,
+              //       decoration: deco.copyWith(
+              //           hintText: 'Enter Url Image' ,
+              //           suffixIcon: Container(margin :const EdgeInsets.fromLTRB(0, 0, 30, 0),child: const Icon(Icons.lock , color: Colors.black12,size: 25,)),
+              //           label:const  Text('Image')
+              //       )
+              //   ),
+              // ),
               Text( errorMessage =='' ? '' : 'heuum $errorMessage' ),
               TextButton(onPressed: (){  widget.toggleView!() ;
               }, child: Text('se connecter')),

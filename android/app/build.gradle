@@ -51,10 +51,11 @@ android {
         applicationId "com.example.ecom"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionName
+
     }
 
     buildTypes {
@@ -70,7 +71,10 @@ flutter {
     source '../..'
 }
 
-dependencies {
+dependencies{
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
     implementation platform('com.google.firebase:firebase-bom:32.2.3')
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
 }

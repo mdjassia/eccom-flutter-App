@@ -25,8 +25,9 @@ class _HomeState extends State<Home> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static  final List<Widget> _widgetOptions = <Widget>[
     Menu() ,
+
     Text(
-      'Index 1: Business',
+      'Index 2: School',
       style: optionStyle,
     ),
     Text(
